@@ -9,7 +9,7 @@ export default {
 			items: [
 				{
 					media: {
-						url: "https://github.com/TrigamDev/Trigam-Den/tree/main/assets/titles/rules.png"
+						url: "https://raw.githubusercontent.com/TrigamDev/Trigam-Den/refs/heads/main/assets/titles/rules.png"
 					},
 					description: "Rules"
 				} as APIMediaGalleryItem
