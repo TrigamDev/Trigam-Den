@@ -6,7 +6,7 @@ export default {
 	components: [
 		{
 			type: ComponentType.TextDisplay,
-			content: "# Notes\nThese rules apply to many different areas, such as:\n- Messages sent within the server\n- Voice calls held within the server\n- DMs and voice calls held between members of the server\n- Any external communications between members of the server\n- Profiles of server members (such as profile picture, bio/about me, etc)\nThis community is meant to be safe and accepting, and that means protecting members however possible."
+			content: "# 🗒️  Notes\nThese rules apply to many different areas, such as:\n- Messages sent within the server\n- Voice calls held within the server\n- DMs and voice calls held between members of the server\n- Any external communications between members of the server\n- Profiles of server members (such as profile picture, bio/about me, etc)\nThis community is meant to be safe and accepting, and that means protecting members however possible."
 		} as APITextDisplayComponent,
 
 		{

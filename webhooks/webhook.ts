@@ -1,6 +1,13 @@
+import { AsyncQueue } from "@sapphire/async-queue"
 import { MessageFlags, WebhookClient } from "discord.js"
 
-export async function sendComponents( webhookUrl: string, components: any[] ) {
+
+
+const queue = new AsyncQueue()
+
+export async function sendMessage( webhookUrl: string, components: any[], callback?: () => void ) {
+	await queue.wait()
+	
 	const webhook = new WebhookClient({ url: webhookUrl })
 	webhook.send({
 		components: components,
@@ -9,10 +16,14 @@ export async function sendComponents( webhookUrl: string, components: any[] ) {
 		allowedMentions: {
 			parse: []
 		}
+	}).then( () => {
+		if ( typeof callback !== "undefined" ) callback()
+	}).finally( () => {
+		queue.shift()
 	})
 }
 
-export async function editComponents( webhookUrl: string, messageId: string, components: any[] ) {
+export async function editMessage( webhookUrl: string, messageId: string, components: any[], callback?: () => void ) {
 	const webhook = new WebhookClient({ url: webhookUrl })
 	webhook.editMessage( messageId, {
 		components: components,
@@ -21,5 +32,7 @@ export async function editComponents( webhookUrl: string, messageId: string, com
 		allowedMentions: {
 			parse: []
 		}
+	}).then( () => {
+		if ( typeof callback !== "undefined" ) callback()
 	})
 }

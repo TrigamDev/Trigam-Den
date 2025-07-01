@@ -1,9 +1,10 @@
 {
 	"scripts": {
-		"rules": "bun ./messages/rules.ts"
+		"rules": "bun ./messages/rules.ts",
+		"infos": "bun ./messages/info.ts"
 	},
-
 	"dependencies": {
+		"@sapphire/async-queue": "^1.5.5",
 		"discord.js": "^14.21.0"
 	}
 }
